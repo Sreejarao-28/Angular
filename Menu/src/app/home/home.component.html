@@ -1,0 +1,28 @@
+<app-search></app-search>
+<app-not-found>
+    [visible]="!foods || !foods.length"
+    resetLinkText="Reset Search">
+</app-not-found>
+<ul>
+    <li *ngFor="let food of foods">
+        <a routerLink="/food/{{food.id}}">
+            <img src="{{food.image_url}}" alt="food images">
+            <div class="content">
+                <div class="name">
+                    {{food.name}}
+                </div>
+                <div class="sub_category">
+                    {{food.sub_category}}
+                </div>
+                <div class="available_quantity">
+                    {{food.available_quantity}}
+                </div>
+                <div class="price">
+                    <span>
+                        {{food.price | currency:'INR'}}
+                    </span>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
